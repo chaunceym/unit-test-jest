@@ -5,7 +5,7 @@ function main2(money) {
   return money >= 1000 ? '双人服务' : '单人服务'
 }
 
-module.exports = {
+export {
   main,main2
 }
 

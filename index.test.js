@@ -1,5 +1,4 @@
-const index = require('./index')
-const {main,main2} = index
+import {main,main2} from './index'
 
 test('保健1 300元', ()=>{
   expect(main(300)).toBe('至尊享受')

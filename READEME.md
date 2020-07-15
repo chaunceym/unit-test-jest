@@ -30,6 +30,43 @@ true 类型匹配器, 非0, 非null, 非undefined等都可以通过
 
 false 类型匹配器, 只要是 falsy 都可以匹配, null, undefined, 0, NaN, ''
 
+- toBeGreaterThan()
+
+用来做数字比较, 只要大于测试的数值, 就可通过
+
+- toBeLessThan() 匹配器
+
+与 toBeGreaterThan 相反, 小于测试的数值, 就可通过
+
+- toBeGreaterThanOrEqual()
+
+当测试结果数据大于等于期待数字时, 可以通过
+
+- toBeLessThanOrEqual()
+
+当测试结果数据小于等于期待数字时, 可以通过
+
+- toBeCloseTO()
+
+可以自动清除 JS 浮点精度错误的匹配器
+
+- toMatch()
+
+字符串包含匹配器
+
+- toContain()
+
+数组匹配器
+
+- toThrow()
+
+对异常处理的匹配器, 可以检测一个方法是否会出异常
+
+- not()
+
+not 匹配器是 Jest 特殊的匹配器, 相反或取反的意思
+
+
 
 
 
