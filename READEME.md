@@ -66,7 +66,76 @@ false 类型匹配器, 只要是 falsy 都可以匹配, null, undefined, 0, NaN,
 
 not 匹配器是 Jest 特殊的匹配器, 相反或取反的意思
 
+## 让 Jest 模块化转为 ES6
 
+```bash
+yarn add @babel/core @babel/preset-env
+```
+
+在 .babelrc 里编写配置
+
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",{
+      "targets": {
+        "node": "current"
+      }
+    }
+    ]
+  ]
+}
+```
+
+## 实现异步测试
+
+- 回调函数式
+
+利用 axios 异步加载数据
+
+测试方法用到 done(), 等异步方法结束再执行测试代码
+
+- 直接返回 Promise
+
+在测试代码里使用 Promise, 必须用 return, 否则报错
+
+```js
+test('fetchOtherData测试',()=>{
+  return fetchOtherData().then(data=>{ // return 才能成功
+    expect(data.data.page).toEqual(null)
+  })
+})
+```
+
+## Jest 四个钩子函数
+
+- beforeAll() 所有测试之前
+- beforeEach() 每个测试之前
+- afterEach() 每个测试之后
+- afterAll() 所有测试之后
+
+## 测试项目分组
+
+当测试用例多了之后, 代码就会更加繁杂
+
+因此我们可以给测试代码分类, 方便管理页方便阅读
+
+Jest 的 describe() 方法可以实现分组
+
+```js
+describe('异步加载测试',()=>{
+  test('获取商品数据',()=>{
+    // todo 
+  })
+})
+```
+
+## 钩子函数作用域
+
+- 钩子函数在父级分组可作用域子集，类似继承
+- 钩子函数同级分组作用域互不干扰，各起作用
+- 先执行外部的钩子函数，再执行内部的钩子函数
 
 
 
